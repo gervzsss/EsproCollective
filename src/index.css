@@ -6,6 +6,10 @@
   --color-primary: #fa8112;
   --color-cream: #faf3e1;
   --color-charcoal: #222222;
+  --color-background-light: #f8f7f5;
+  --color-background-dark: #23190f;
+  --color-accent-dark: #1c140d;
+  --color-espro-cream: #f5e7c6;
 
   /* Font Families */
   --font-display: "Plus Jakarta Sans", "Noto Sans", sans-serif;
@@ -23,7 +27,12 @@
   html,
   body {
     font-family: var(--font-display);
-    background-color: var(--color-cream);
+    background-color: var(--color-background-light);
+  }
+
+  .dark body,
+  .dark {
+    background-color: var(--color-background-dark);
   }
 
   body {
@@ -42,4 +51,50 @@
     "wght" 400,
     "GRAD" 0,
     "opsz" 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* ===== Utility Classes ===== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ===== Topographical Pattern ===== */
+.topo-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath d='M450,0 Q480,100 400,150 T450,250 T380,350 T480,500' fill='none' stroke='%23FA8112' stroke-width='0.8' opacity='0.15'/%3E%3Cpath d='M400,0 Q430,100 350,150 T400,250 T330,350 T430,500' fill='none' stroke='%23FA8112' stroke-width='0.8' opacity='0.15'/%3E%3Cpath d='M350,0 Q380,100 300,150 T350,250 T280,350 T380,500' fill='none' stroke='%23FA8112' stroke-width='0.8' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: right;
+}
+
+/* ===== Wheel Gradient ===== */
+.wheel-gradient {
+  background: conic-gradient(from 0deg, #fa8112 0deg 90deg, #e67312 90deg 180deg, #fa8112 180deg 270deg, #e67312 270deg 360deg);
+}
+
+/* ===== Mystery Box Gradient ===== */
+.mystery-gradient {
+  background: linear-gradient(135deg, #1c140d 0%, #322416 100%);
+}
+
+/* ===== Card Shadow ===== */
+.card-shadow {
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }

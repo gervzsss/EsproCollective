@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -10,20 +11,15 @@ export default function LoginForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      toast.error("Please fill in all fields");
-      return;
-    }
-
     setIsSubmitting(true);
 
-    // Stub: simulate async login
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Simulate brief loading state
+    await new Promise((resolve) => setTimeout(resolve, 300));
 
     toast.success("Login successful!");
-    console.log("Login submitted:", { email });
 
-    setIsSubmitting(false);
+    // Redirect to home page
+    navigate("/home");
   };
 
   return (
@@ -40,7 +36,6 @@ export default function LoginForm() {
           className="text-charcoal placeholder:text-charcoal/50 focus:ring-primary h-12 w-full rounded-full border-none bg-white pr-4 pl-12 text-sm font-medium focus:ring-2"
           placeholder="Email Address"
           aria-label="Email Address"
-          required
         />
       </div>
 
@@ -56,7 +51,6 @@ export default function LoginForm() {
           className="text-charcoal placeholder:text-charcoal/50 focus:ring-primary h-12 w-full rounded-full border-none bg-white pr-4 pl-12 text-sm font-medium focus:ring-2"
           placeholder="Password"
           aria-label="Password"
-          required
         />
       </div>
 
