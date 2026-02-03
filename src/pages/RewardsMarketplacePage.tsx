@@ -33,30 +33,31 @@ const rewards = [
   },
   {
     id: 2,
-    name: "Caramel Macchiato",
-    pointsCost: 250,
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMh_cLmnW73yEfARzX8zEr0O2XkYh9Dy_WPK7P3E42fHzRTZfroDRh5Fhc6ojiPN_S7m56HE-ENE5dICqUTPEmuxqzpjrSl_Anvkb-BCcFT566fEZ19_3QaKvxBL461pHVfgU61bYBUEo0bACKa0ANyai9nt2eAXCUEHQPfp1VtYk99JzI2UtS-HB5w6eeICQceyR7AGZ6Ug3AmnuS64Jdq46ICCbeqpu0E7ZDabL_vc1U9tOkqY1wTVSSbIRaOWVBUvaEYthk1MSA",
-    available: true,
-    categoryId: "drinks",
-  },
-  {
-    id: 3,
-    name: "Croissant",
+    name: "Any Fresh Pastry",
     pointsCost: 150,
     imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMh_cLmnW73yEfARzX8zEr0O2XkYh9Dy_WPK7P3E42fHzRTZfroDRh5Fhc6ojiPN_S7m56HE-ENE5dICqUTPEmuxqzpjrSl_Anvkb-BCcFT566fEZ19_3QaKvxBL461pHVfgU61bYBUEo0bACKa0ANyai9nt2eAXCUEHQPfp1VtYk99JzI2UtS-HB5w6eeICQceyR7AGZ6Ug3AmnuS64Jdq46ICCbeqpu0E7ZDabL_vc1U9tOkqY1wTVSSbIRaOWVBUvaEYthk1MSA",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBROYDzeuWQWRJBx_wLW7XsixhAYtQd2jqDImE6aaJbPnp8J15GDbEou0zTnUE-OVGN5bp20BnYUVCVtTwjtJSPjgdumLS1FEmCNn4lQjdSNNkSosJl17O4i-TNOMGM2nIUuKtcSGrNVvks2hHCpwT4DyyUdKuBpWO8zlBIPWasXLLK7IoDbcpHwaRrFS-GRXD80OrohcVuET2R3jsVehEjvLLpCZHyKLASCfnPg4WcNwOeYk2Fx_R6mMr1HT18svF6Ujo1AjnlXImM",
     available: true,
     categoryId: "food",
   },
   {
-    id: 4,
-    name: "Espro Mug",
+    id: 3,
+    name: "Espresso Tasting Set",
     pointsCost: 500,
     imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMh_cLmnW73yEfARzX8zEr0O2XkYh9Dy_WPK7P3E42fHzRTZfroDRh5Fhc6ojiPN_S7m56HE-ENE5dICqUTPEmuxqzpjrSl_Anvkb-BCcFT566fEZ19_3QaKvxBL461pHVfgU61bYBUEo0bACKa0ANyai9nt2eAXCUEHQPfp1VtYk99JzI2UtS-HB5w6eeICQceyR7AGZ6Ug3AmnuS64Jdq46ICCbeqpu0E7ZDabL_vc1U9tOkqY1wTVSSbIRaOWVBUvaEYthk1MSA",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBmeDClxMwbGiMQD99-wakc6D5U2xYmQK-tVScvrTWwPAVhDzkOgueg7o4Yu2Z88FobjX-89JQ_w9piTAGXLxrHHnOET5ANp26JYnzf6tDiOlJQuf2lCdtjbxP1bGNCeKAIxbjTG-JOywnkQCOywnhu_3fLug9948cXxbLwrhlwKwBYo7-H-7Jz8gug29_2Wl3_FnjOLL1NoX6cVdYcLjZnT7V-PD7DpGCcgJ6PwyHoTikcs3Pybs8ggRR6wRumt89uRlH-AMSPWCBL",
+    available: true,
+    categoryId: "drinks",
+  },
+  {
+    id: 4,
+    name: "Collective Mug v.1",
+    pointsCost: 2000,
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDk48DxOm4GdD_ctX0dyNLfVamDOsOagUa3DG3SntM1zFnk9CyxvhlJtTHO13GU4inT-2bZ1Zcg1U59SgJ2tEhFctrpAygRmqhE7JBCLwM4jzQ8p_TPwScaiPVpCsIeVepPSXL6jJeJCEMtzOAUlItVRPVoGjQX50UXWZ4eAjcoWSwC0p6wq3DmILwU9J3JXMeYuPWHQZVdo2KHWZlGFaFBZLtHnp8vuIlhe6k3Cg69rrU7vXRZyPxgnadxC9Yt8znBttJivb1Za9lQ",
     available: false,
     categoryId: "merch",
+    premium: true,
   },
 ];
 
@@ -72,7 +73,9 @@ export default function RewardsMarketplacePage() {
         <div className="flex size-12 shrink-0 items-center">
           <div className="border-primary/20 aspect-square size-10 rounded-full border-2 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url("${member.avatarUrl}")` }} />
         </div>
-        <h2 className="text-accent-dark flex-1 text-center text-lg leading-tight font-bold tracking-tight dark:text-white">Espro Collective</h2>
+        <h2 className="text-accent-dark flex-1 text-center text-lg leading-tight font-bold tracking-tight dark:text-white">
+          <span className="font-serif-bold italic">espro.</span> <span className="font-script font-bold not-italic">Collective</span>
+        </h2>
         <div className="flex w-12 items-center justify-end">
           <button className="dark:bg-charcoal flex size-10 cursor-pointer items-center justify-center rounded-full bg-white shadow-sm">
             <span className="material-symbols-outlined text-accent-dark dark:text-white">notifications</span>
@@ -90,7 +93,7 @@ export default function RewardsMarketplacePage() {
 
         {/* Balance Card */}
         <div className="p-4">
-          <div className="dark:border-charcoal dark:bg-charcoal rounded-xl border border-[#e9dbce]/50 bg-white p-5 shadow-sm">
+          <div className="rounded-xl border border-[#e9dbce]/50 bg-white p-5 shadow-sm dark:border-[#423122] dark:bg-[#322416]">
             <div className="mb-3 flex items-end justify-between gap-6">
               <div>
                 <p className="text-xs font-bold tracking-wider text-[#9e7147] uppercase dark:text-[#c5a17e]">Total Balance</p>
@@ -103,7 +106,7 @@ export default function RewardsMarketplacePage() {
                 <p className="text-primary text-xs font-bold">Next level: {member.nextLevelPoints.toLocaleString()} pts</p>
               </div>
             </div>
-            <div className="dark:bg-charcoal h-2.5 overflow-hidden rounded-full bg-[#e9dbce]">
+            <div className="h-2.5 overflow-hidden rounded-full bg-[#e9dbce] dark:bg-[#423122]">
               <div className="bg-primary h-full rounded-full" style={{ width: `${member.progressPct}%` }} />
             </div>
             <div className="mt-3 flex items-center gap-2 text-[#9e7147] dark:text-[#c5a17e]">
@@ -130,7 +133,7 @@ export default function RewardsMarketplacePage() {
               className={`flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl px-5 ${
                 selectedCategory === cat.id
                   ? "bg-primary shadow-primary/20 text-white shadow-md"
-                  : "text-accent-dark dark:border-charcoal dark:bg-charcoal border border-[#e9dbce]/50 bg-white dark:text-white"
+                  : "text-accent-dark border border-[#e9dbce]/50 bg-white dark:border-[#423122] dark:bg-[#322416] dark:text-white"
               }`}
             >
               {cat.icon && <span className="material-symbols-outlined text-lg">{cat.icon}</span>}
@@ -142,18 +145,24 @@ export default function RewardsMarketplacePage() {
         {/* Reward Grid */}
         <div className="grid grid-cols-2 gap-4 px-4 pb-8">
           {filteredRewards.map((reward) => (
-            <Link key={reward.id} to={`/rewards/${reward.id}`} className="group flex flex-col gap-3">
-              <div className="dark:border-charcoal dark:bg-charcoal relative aspect-square w-full overflow-hidden rounded-xl border border-[#e9dbce]/50 bg-white shadow-sm">
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url("${reward.imageUrl}")` }} />
-                <div className={`absolute right-2 bottom-2 rounded-lg px-2 py-1 text-[10px] font-bold tracking-tight text-white uppercase ${reward.available ? "bg-primary" : "bg-gray-400"}`}>
-                  {reward.available ? "Available" : "Locked"}
-                </div>
+            <div key={reward.id} className={`group flex flex-col gap-3 ${!reward.available ? "opacity-80" : ""}`}>
+              <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-[#e9dbce]/50 bg-white shadow-sm dark:border-[#423122] dark:bg-[#322416]">
+                <div className={`absolute inset-0 bg-cover bg-center ${!reward.available ? "grayscale" : ""}`} style={{ backgroundImage: `url("${reward.imageUrl}")` }} />
+                {!reward.available && (
+                  <div className="bg-background-dark/40 absolute inset-0 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-3xl text-white">lock</span>
+                  </div>
+                )}
+                {reward.available && <div className="bg-primary absolute right-2 bottom-2 rounded-lg px-2 py-1 text-[10px] font-bold tracking-tight text-white uppercase">Available</div>}
               </div>
               <div>
-                <p className="text-accent-dark text-sm leading-tight font-bold dark:text-white">{reward.name}</p>
-                <p className="text-primary mt-1 text-xs font-bold">{reward.pointsCost} pts</p>
+                <div className="flex items-center gap-1">
+                  <p className="text-accent-dark text-sm leading-tight font-bold dark:text-white">{reward.name}</p>
+                  {reward.premium && <span className="material-symbols-outlined text-primary text-[14px]">star</span>}
+                </div>
+                <p className={`mt-1 text-xs font-bold ${reward.available ? "text-primary" : "text-[#9e7147] dark:text-[#c5a17e]"}`}>{reward.pointsCost.toLocaleString()} pts</p>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </main>
