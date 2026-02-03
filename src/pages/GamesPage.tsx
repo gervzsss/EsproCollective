@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { AppShell, TopBar, BottomNav } from "../components/layout";
+import { AppShell, BottomNav } from "../components/layout";
 
 // Mock data
 const spinData = {
@@ -15,12 +15,11 @@ const mysteryBox = {
 };
 
 const badges = [
-  { id: 1, name: "First Purchase", iconName: "shopping_cart_checkout", completed: true },
-  { id: 2, name: "Weekly Streak", iconName: "local_fire_department", completed: true },
-  { id: 3, name: "Coffee Master", iconName: "emoji_events", completed: false },
-  { id: 4, name: "Social Share", iconName: "share", completed: false },
-  { id: 5, name: "Referral King", iconName: "group_add", completed: false },
-  { id: 6, name: "Top Spender", iconName: "payments", completed: false },
+  { id: 1, name: "First Purchase", iconName: "shopping_cart_checkout", status: "unlocked" },
+  { id: 2, name: "Explorer", iconName: "explore", status: "progress", progress: 60, progressText: "3/5 Products" },
+  { id: 3, name: "Early Bird", iconName: "light_mode", status: "locked" },
+  { id: 4, name: "Weekend Warrior", iconName: "weekend", status: "locked" },
+  { id: 5, name: "Top Fan", iconName: "star", status: "locked" },
 ];
 
 export default function GamesPage() {
@@ -41,15 +40,20 @@ export default function GamesPage() {
 
   return (
     <AppShell>
-      <TopBar
-        title="Games & Badges"
-        leftAction="back"
-        rightAction={
-          <button className="text-accent-dark flex size-12 items-center justify-center rounded-xl bg-transparent dark:text-white">
+      {/* Header */}
+      <header className="nav-blur dark:bg-background-dark/80 sticky top-0 z-30 flex items-center justify-between border-b border-gray-100 bg-white/80 p-4 pb-2 dark:border-white/5">
+        <div className="text-accent-dark flex size-12 shrink-0 items-center dark:text-white">
+          <button onClick={() => window.history.back()}>
+            <span className="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+          </button>
+        </div>
+        <h2 className="text-accent-dark flex-1 text-center text-lg leading-tight font-bold tracking-tight dark:text-white">Games & Badges</h2>
+        <div className="flex w-12 items-center justify-end">
+          <button className="text-accent-dark flex items-center justify-center rounded-xl bg-transparent dark:text-white">
             <span className="material-symbols-outlined">help</span>
           </button>
-        }
-      />
+        </div>
+      </header>
 
       <main className="flex-1 overflow-y-auto pb-32">
         {/* Spin Wheel Section */}
@@ -163,28 +167,73 @@ export default function GamesPage() {
 
         <div className="grid grid-cols-3 gap-x-4 gap-y-8 px-4 pb-12">
           {badges.map((badge) => (
-            <div key={badge.id} className="flex flex-col items-center gap-2">
+            <div key={badge.id} className={`flex flex-col items-center gap-2 ${badge.status === "locked" ? "opacity-50" : ""}`}>
               <div
                 className={`relative flex h-20 w-20 items-center justify-center rounded-full border-2 p-3 ${
-                  badge.completed ? "border-primary/30 bg-primary/10 dark:bg-primary/20" : "border-gray-200 bg-gray-100 dark:border-white/10 dark:bg-white/5"
+                  badge.status === "unlocked"
+                    ? "border-primary/30 bg-primary/10 dark:bg-primary/20"
+                    : badge.status === "progress"
+                      ? "border-primary/40 bg-primary/5 border-dashed dark:bg-white/5"
+                      : "border-transparent bg-gray-100 dark:bg-white/5"
                 }`}
               >
                 <div
-                  className={`flex h-full w-full items-center justify-center rounded-full shadow-md ${
-                    badge.completed ? "bg-primary text-white" : "bg-gray-200 text-gray-400 dark:bg-white/10 dark:text-white/40"
+                  className={`flex h-full w-full items-center justify-center rounded-full ${
+                    badge.status === "unlocked" ? "bg-primary text-white shadow-md" : badge.status === "progress" ? "bg-primary/20 text-primary/60" : "bg-gray-200 text-gray-500 dark:bg-white/10"
                   }`}
                 >
                   <span className="material-symbols-outlined text-3xl">{badge.iconName}</span>
                 </div>
-                {badge.completed && (
+                {badge.status === "unlocked" && (
                   <div className="dark:border-background-dark absolute -right-1 -bottom-1 rounded-full border-2 border-white bg-green-500 p-0.5 text-white">
                     <span className="material-symbols-outlined text-[10px] font-bold">check</span>
                   </div>
                 )}
+                {badge.status === "progress" && badge.progress && (
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-1">
+                    <svg className="h-full w-full -rotate-90">
+                      <circle cx="50%" cy="50%" r="46%" fill="none" stroke="#fa8314" strokeWidth="3" strokeLinecap="round" strokeDasharray="100" strokeDashoffset={100 - badge.progress} />
+                    </svg>
+                  </div>
+                )}
+                {badge.status === "locked" && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-accent-dark/30 text-xl dark:text-white/30">lock</span>
+                  </div>
+                )}
               </div>
-              <p className={`text-center text-[10px] font-bold tracking-tight uppercase ${badge.completed ? "text-accent-dark dark:text-white" : "text-gray-400 dark:text-white/40"}`}>{badge.name}</p>
+              <div className="text-center">
+                <p className="text-xs leading-tight font-bold">{badge.name}</p>
+                <p className={`mt-0.5 text-[10px] font-bold ${badge.status === "unlocked" ? "text-green-600 uppercase" : badge.status === "progress" ? "text-primary" : "text-gray-500 uppercase"}`}>
+                  {badge.status === "unlocked" ? "Unlocked" : badge.status === "progress" ? badge.progressText : "Locked"}
+                </p>
+              </div>
             </div>
           ))}
+          {/* Discover More */}
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-gray-200 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
+              <span className="material-symbols-outlined text-2xl text-gray-300 dark:text-white/10">more_horiz</span>
+            </div>
+            <p className="text-[10px] font-bold text-gray-400">Discover More</p>
+          </div>
+        </div>
+
+        {/* Special Challenge */}
+        <div className="px-4 pb-6">
+          <div
+            className="flex min-h-40 w-full flex-col justify-end overflow-hidden rounded-2xl border border-gray-100 bg-cover bg-center bg-no-repeat px-6 py-6 dark:border-white/5"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAPXsE5LsIBkmlGqGSS-hYVvfMRiBpn-ixiz8sBII-UVo37NbaxvwWnwv5nurP_qyHtAHZLTUZnNJHQVtzaNmSJ2kUDQwZraE1jK9I8VOlCSNC3o-jwlmT4pQlJATbbvBY0L4RiMK3__fAG34tLySnI4IbKB0qUmllYbqPQt5P43_25tR1DbyezO-x5EO5dPxyFl-gQRph6CsJpNBG30PT2Y07cgLQgR89WovxbTMMDjAeldmE6WfuXpH50VVrahNVNj2_sZNgvmgOE")',
+            }}
+          >
+            <h3 className="text-xl font-bold text-white">Special Challenge</h3>
+            <p className="mb-3 text-sm text-white/90">Refer a friend and win 100 extra beans!</p>
+            <div className="flex">
+              <span className="bg-primary rounded-full px-3 py-1 text-[10px] font-bold tracking-wider text-white uppercase">Join Now</span>
+            </div>
+          </div>
         </div>
       </main>
 
