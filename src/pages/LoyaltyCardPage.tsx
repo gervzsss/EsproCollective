@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AppShell, BottomNav } from "../components/layout";
 
 // Member type
@@ -147,10 +148,13 @@ function CardFront({ member }: { member: Member }) {
         <div>
           <h4 className="text-accent-dark/50 mb-2 px-1 py-2 text-xs leading-normal font-bold tracking-[0.2em] uppercase dark:text-white/50">Membership Details</h4>
           <div className="border-accent-dark/5 flex flex-col gap-3 rounded-2xl border bg-white p-4 shadow-sm dark:border-white/5 dark:bg-white/5">
-            <div className="flex items-center justify-between py-1">
+            <Link to="/tiers" className="group flex cursor-pointer items-center justify-between py-1">
               <span className="text-accent-dark/70 text-sm font-medium dark:text-white/60">Current Tier</span>
-              <span className="text-primary text-sm font-bold">Espro {member.tierName}</span>
-            </div>
+              <div className="flex items-center gap-2">
+                <span className="text-primary text-sm font-bold">Espro {member.tierName}</span>
+                <span className="material-symbols-outlined text-primary text-lg">chevron_right</span>
+              </div>
+            </Link>
             <div className="bg-accent-dark/5 h-px w-full dark:bg-white/10"></div>
             <div className="flex items-center justify-between py-1">
               <span className="text-accent-dark/70 text-sm font-medium dark:text-white/60">Next Tier Progress</span>
