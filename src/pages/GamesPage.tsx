@@ -203,8 +203,10 @@ export default function GamesPage() {
                 )}
               </div>
               <div className="text-center">
-                <p className="text-xs leading-tight font-bold">{badge.name}</p>
-                <p className={`mt-0.5 text-[10px] font-bold ${badge.status === "unlocked" ? "text-green-600 uppercase" : badge.status === "progress" ? "text-primary" : "text-gray-500 uppercase"}`}>
+                <p className="text-accent-dark text-xs leading-tight font-bold dark:text-white">{badge.name}</p>
+                <p
+                  className={`mt-0.5 text-[10px] font-bold ${badge.status === "unlocked" ? "text-green-600 uppercase dark:text-green-400" : badge.status === "progress" ? "text-primary" : "text-gray-500 uppercase dark:text-gray-400"}`}
+                >
                   {badge.status === "unlocked" ? "Unlocked" : badge.status === "progress" ? badge.progressText : "Locked"}
                 </p>
               </div>
@@ -215,7 +217,7 @@ export default function GamesPage() {
             <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed border-gray-200 bg-gray-50 p-3 dark:border-white/10 dark:bg-white/5">
               <span className="material-symbols-outlined text-2xl text-gray-300 dark:text-white/10">more_horiz</span>
             </div>
-            <p className="text-[10px] font-bold text-gray-400">Discover More</p>
+            <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500">Discover More</p>
           </div>
         </div>
 
