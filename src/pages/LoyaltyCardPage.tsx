@@ -42,8 +42,8 @@ export default function LoyaltyCardPage() {
             <span className="material-symbols-outlined">arrow_back_ios</span>
           </button>
         </div>
-        <h2 className="text-accent-dark flex-1 text-center text-lg leading-tight font-bold tracking-tight italic dark:text-white">
-          espro. <span className="font-script text-primary not-italic">Collective</span>
+        <h2 className="text-accent-dark flex-1 text-center text-lg leading-tight font-bold tracking-tight dark:text-white">
+          <span className="font-serif-bold italic">espro.</span> <span className="font-script font-bold not-italic">Collective</span>
         </h2>
         <div className="flex w-12 items-center justify-end">
           <button className="text-accent-dark flex size-12 items-center justify-center rounded-xl bg-transparent dark:text-white">
@@ -57,11 +57,11 @@ export default function LoyaltyCardPage() {
         {/* Toggle */}
         <div className="mb-6 flex px-4 py-3">
           <div className="border-accent-dark/5 bg-accent-dark/5 flex h-12 flex-1 items-center justify-center rounded-xl border p-1 dark:border-white/5 dark:bg-white/10">
-            <label className="has-checked:text-accent-dark dark:has-checked:bg-accent-dark ddark:has-checked:text-white flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-semibold transition-all has-checked:bg-white has-checked:shadow-sm">
+            <label className="text-accent-dark/60 has-checked:text-accent-dark dark:has-checked:bg-accent-dark flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-semibold transition-all has-checked:bg-white has-checked:shadow-sm dark:text-white/60 dark:has-checked:text-white">
               <span className="truncate">Card Front</span>
               <input className="invisible w-0" name="card-view" type="radio" value="front" checked={view === "front"} onChange={() => setView("front")} />
             </label>
-            <label className="has-checked:text-accent-dark dark:has-checked:bg-accent-dark ddark:has-checked:text-white flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-semibold transition-all has-checked:bg-white has-checked:shadow-sm">
+            <label className="text-accent-dark/60 has-checked:text-accent-dark dark:has-checked:bg-accent-dark flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-semibold transition-all has-checked:bg-white has-checked:shadow-sm dark:text-white/60 dark:has-checked:text-white">
               <span className="truncate">Card Back</span>
               <input className="invisible w-0" name="card-view" type="radio" value="back" checked={view === "back"} onChange={() => setView("back")} />
             </label>
@@ -113,7 +113,7 @@ function CardFront({ member }: { member: Member }) {
                 </svg>
               </div>
               <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-white">espro.</h1>
+                <h1 className="font-serif-bold text-4xl tracking-tight text-white">espro.</h1>
                 <p className="font-script text-primary -mt-2 text-3xl">Collective</p>
               </div>
             </div>
@@ -143,20 +143,19 @@ function CardFront({ member }: { member: Member }) {
       </div>
 
       {/* Membership Details */}
-      <div className="px-2">
-        <h4 className="text-accent-dark/50 mb-2 px-1 py-2 text-xs leading-normal font-bold tracking-[0.2em] uppercase dark:text-white/50">Membership Details</h4>
-        <div className="border-accent-dark/5 flex flex-col gap-3 rounded-2xl border bg-white p-4 shadow-sm dark:border-white/5 dark:bg-white/5">
-          <div className="flex items-center justify-between py-1">
-            <span className="text-accent-dark/60 text-sm dark:text-white/60">Member Since</span>
-            <span className="text-accent-dark text-sm font-bold dark:text-white">{member.memberSince}</span>
-          </div>
-          <div className="flex items-center justify-between py-1">
-            <span className="text-accent-dark/60 text-sm dark:text-white/60">Current Tier</span>
-            <span className="text-primary text-sm font-bold">{member.tierName}</span>
-          </div>
-          <div className="flex items-center justify-between py-1">
-            <span className="text-accent-dark/60 text-sm dark:text-white/60">Available Rewards</span>
-            <span className="text-accent-dark text-sm font-bold dark:text-white">{member.rewardsAvailableCount}</span>
+      <div className="mb-8 flex flex-col gap-6 px-2">
+        <div>
+          <h4 className="text-accent-dark/50 mb-2 px-1 py-2 text-xs leading-normal font-bold tracking-[0.2em] uppercase dark:text-white/50">Membership Details</h4>
+          <div className="border-accent-dark/5 flex flex-col gap-3 rounded-2xl border bg-white p-4 shadow-sm dark:border-white/5 dark:bg-white/5">
+            <div className="flex items-center justify-between py-1">
+              <span className="text-accent-dark/70 text-sm font-medium dark:text-white/60">Current Tier</span>
+              <span className="text-primary text-sm font-bold">Espro {member.tierName}</span>
+            </div>
+            <div className="bg-accent-dark/5 h-px w-full dark:bg-white/10"></div>
+            <div className="flex items-center justify-between py-1">
+              <span className="text-accent-dark/70 text-sm font-medium dark:text-white/60">Next Tier Progress</span>
+              <span className="text-accent-dark text-sm font-bold dark:text-white">550 pts remaining</span>
+            </div>
           </div>
         </div>
       </div>
@@ -176,7 +175,7 @@ function CardBack({ member }: { member: Member }) {
             {/* Top Branding */}
             <div className="flex items-center justify-center">
               <div className="text-center">
-                <h1 className="text-2xl font-bold tracking-tight text-white">espro.</h1>
+                <h1 className="font-serif-bold text-2xl tracking-tight text-white">espro.</h1>
                 <p className="font-script text-primary -mt-1 text-xl">Collective</p>
               </div>
             </div>
