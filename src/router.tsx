@@ -16,7 +16,7 @@ import PaymentsPage from "./pages/PaymentsPage";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/home" replace />,
+    element: <Navigate to="/login" replace />,
   },
   // Auth routes
   {
