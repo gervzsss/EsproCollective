@@ -12,6 +12,8 @@ const tierSummary = {
   tierName: "Espro Elite",
   pointsBalance: 1250,
   progressPct: 75,
+  levelStatus: "Level 3 Status",
+  ptsToNextLevel: 250,
   bannerImageUrl:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCNlmaM9tQ6yvVvenQn7o_z-6n2_jUv-4tyNt1j_NIyq5XLdG24MqP5-yWEP9RbJw41x8nTR8_O1JiN4Ft3sBVQ4S7yunt72OWph2iLpM9lxMeI3FuyWFAwnui9fQZxoMLzUgwdxJLZDV0vpfsZHsmzaVayYFU0ky5kXcY501tFGFUbSG9bBGpUQINQZWHALUcxu9LugjqQl1sVMnFnOQXtpdcXzsW8_pYZ_ysls_57tfvaH6iJCW6dqyOR0Hf6BrJnbCWV8VQsCDVc",
 };
@@ -35,6 +37,29 @@ const missions = [
   },
 ];
 
+const rewards = [
+  {
+    id: 1,
+    tag: "New Arrival",
+    title: "Perk Drop",
+    description: "Early access to single-origin blends.",
+    points: 500,
+    action: "Redeem",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAMvcqRRdAQfvCHZQlytZvTudl0YbAhNN3rwdfE_uRfT5y4NffSKQhSoAhBT9WcTncotXzEBatUSWcr9GQJDwjgZGG4ArgKpQw9EXnixg7xiS5BT5sDLGwriJE00rlh-59pmgPEyAcELbs218VrG1ohnkGME160wFboxcr1T2puTlfXpIIq5AnV_i7WgDguhoCk0IE1F0oDNtLdmm2623Rj3vM3wtFnpfQqwJK-ghhz-x1PW5VwAYOD9K6jsWjMVJjmW7OjeyFGnz8N",
+  },
+  {
+    id: 2,
+    tag: "Booster",
+    title: "Bonus Boost",
+    description: "2x points multiplier for 24 hours.",
+    points: 300,
+    action: "Unlock",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCoxnHWwKKgsdaBqsb_jvwPnMnihnOVMxi5HziZypXGRdYHi6bSbJIVIEZZdplTi7cfyzbgteR55NX4m5byPd6_HTYgsY6efl6Q86T4OQMjBelQ1AemQukrtJxtil0I84xGK6LjxhGZAjHiSTi_YfWZy2Dg1cWmRPyH_-yNEmJopQ2RsikS7r6UweoU0HJzsCQ2_pZKNK7JHz1PYov8CSY3oHZ2V-DeiZZZYneJJwl0_N9bXC3t2HLVPVtxAZ84Zk3oIjIQwWW9FoqK",
+  },
+];
+
 function getGreeting() {
   const hour = new Date().getHours();
   if (hour < 12) return "Good Morning";
@@ -46,7 +71,7 @@ export default function HomePage() {
   return (
     <AppShell>
       {/* Top Bar */}
-      <div className="bg-background-light/80 nav-blur dark:bg-background-dark/80 sticky top-0 z-50 flex items-center justify-between p-4 pb-2">
+      <div className="bg-background-light/80 dark:bg-background-dark/80 sticky top-0 z-50 flex items-center justify-between p-4 pb-2 backdrop-blur-md">
         <div className="flex size-12 shrink-0 items-center">
           <div className="border-primary aspect-square size-10 rounded-full border-2 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url("${member.avatarUrl}")` }} />
         </div>
@@ -84,13 +109,13 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="bg-primary/20 rounded-lg p-2">
-                  <span className="material-symbols-outlined filled text-primary text-3xl">workspace_premium</span>
+                  <span className="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
                 </div>
               </div>
               <div className="mt-4 flex flex-col gap-2">
                 <div className="flex items-end justify-between gap-6">
-                  <p className="text-sm font-medium text-white">Level 3 Status</p>
-                  <p className="text-[10px] font-normal tracking-tight text-gray-400 uppercase">250 pts to Level 4</p>
+                  <p className="text-sm font-medium text-white">{tierSummary.levelStatus}</p>
+                  <p className="text-[10px] font-normal tracking-tight text-gray-400 uppercase">{tierSummary.ptsToNextLevel} pts to Level 4</p>
                 </div>
                 <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
                   <div className="bg-primary h-full rounded-full" style={{ width: `${tierSummary.progressPct}%` }} />
@@ -136,25 +161,25 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Quick Actions */}
+        {/* Unlock Rewards */}
         <div className="flex items-center justify-between px-4 pt-6">
-          <h2 className="text-accent-dark text-xl font-extrabold tracking-tight dark:text-white">Quick Actions</h2>
+          <h2 className="text-accent-dark text-xl font-extrabold tracking-tight dark:text-white">Unlock Rewards</h2>
         </div>
-        <div className="grid grid-cols-2 gap-3 px-4 py-2">
-          <Link
-            to="/rewards"
-            className="flex flex-col items-center gap-2 rounded-xl border border-black/5 bg-white p-4 shadow-sm transition-transform active:scale-95 dark:border-white/5 dark:bg-white/5"
-          >
-            <span className="material-symbols-outlined text-primary text-3xl">redeem</span>
-            <span className="text-accent-dark text-sm font-bold dark:text-white">Rewards</span>
-          </Link>
-          <Link
-            to="/games"
-            className="flex flex-col items-center gap-2 rounded-xl border border-black/5 bg-white p-4 shadow-sm transition-transform active:scale-95 dark:border-white/5 dark:bg-white/5"
-          >
-            <span className="material-symbols-outlined text-primary text-3xl">casino</span>
-            <span className="text-accent-dark text-sm font-bold dark:text-white">Games</span>
-          </Link>
+
+        <div className="no-scrollbar flex gap-4 overflow-x-auto px-4 py-4">
+          {rewards.map((reward) => (
+            <div key={reward.id} className="flex min-w-60 flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-md dark:border-white/5 dark:bg-white/5">
+              <div className="h-32 bg-cover bg-center" style={{ backgroundImage: `url("${reward.imageUrl}")` }} />
+              <div className="p-4">
+                <p className="text-primary mb-1 text-[10px] font-extrabold tracking-widest uppercase">{reward.tag}</p>
+                <h4 className="text-accent-dark text-lg font-bold dark:text-white">{reward.title}</h4>
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">{reward.description}</p>
+                <button className="bg-accent-dark dark:bg-primary mt-4 w-full rounded-lg py-2 text-xs font-bold tracking-wider text-white uppercase">
+                  {reward.action} ({reward.points} pts)
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </main>
 
