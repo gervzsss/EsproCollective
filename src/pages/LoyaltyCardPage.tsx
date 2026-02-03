@@ -26,8 +26,8 @@ const member: Member = {
   memberSince: "Nov 2023",
   rewardsAvailableCount: 4,
   pointsValidityText: "Points valid for 12 months",
-  qrCodeUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDzo97nS-q011zuErdT-VPgkK0Fv-AWujSuQzbof2x8IL4eHuEf2FDta8OpBEM2HaZJDcXZki8Dfn5ZfT1YNTjXr7dreGVgHMlqI45xpqdpWYAu1uNCTm_yygxvoMm4Xw17OjsjTKi0ODT_TMPU33JL-gaf97lv28KGC4NNpPCnQ1j7I9W1FjtROa8Q0a_EEc-YosDKXUv8jWHp8toNKIZgkAetldo1gXV7GPWNPglfmRgloEOG87jpWzG1e8mr7UzUvrEZLxn6d5h_",
+  // Using QR Server API for a clean QR code without padding
+  qrCodeUrl: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=ESPRO-MEMBER-12345&margin=0",
 };
 
 export default function LoyaltyCardPage() {
@@ -167,47 +167,53 @@ function CardFront({ member }: { member: Member }) {
 function CardBack({ member }: { member: Member }) {
   return (
     <>
-      <div className="bg-charcoal card-shadow relative flex aspect-[0.63] w-full flex-col items-center overflow-hidden rounded-2xl border border-white/5 p-8">
-        {/* Topo overlay */}
-        <div className="topo-pattern pointer-events-none absolute inset-0 scale-125 rotate-90 opacity-10 mix-blend-overlay" />
+      <div className="mb-10 flex justify-center">
+        <div className="bg-accent-dark card-shadow relative flex h-125 w-[320px] flex-col overflow-hidden rounded-4xl border border-white/10">
+          {/* Topo Pattern Overlay */}
+          <div className="topo-pattern pointer-events-none absolute inset-0 opacity-20" />
 
-        {/* Top Header */}
-        <div className="z-10 mb-4 flex w-full items-start justify-between">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10">
-            <div className="bg-primary/80 h-2 w-2 rounded-full" />
-          </div>
-          <div className="text-right">
-            <p className="text-[10px] font-bold tracking-[0.25em] text-white/30 uppercase">Loyalty Pass</p>
-          </div>
-        </div>
+          <div className="relative z-10 flex h-full flex-col p-8">
+            {/* Top Branding */}
+            <div className="flex items-center justify-center">
+              <div className="text-center">
+                <h1 className="text-2xl font-bold tracking-tight text-white">espro.</h1>
+                <p className="font-script text-primary -mt-1 text-xl">Collective</p>
+              </div>
+            </div>
 
-        {/* QR Code Section */}
-        <div className="z-10 flex w-full flex-1 flex-col items-center justify-center space-y-12">
-          <div className="relative flex aspect-square w-full max-w-70 items-center justify-center rounded-3xl bg-white p-6 shadow-2xl">
-            <div className="h-full w-full overflow-hidden">
-              <div className="h-full w-full bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url('${member.qrCodeUrl}')` }} />
+            {/* QR Code Section - Centered */}
+            <div className="flex flex-1 flex-col items-center justify-center py-4">
+              <div className="aspect-square w-full max-w-45 overflow-hidden rounded-lg bg-white">
+                <img src={member.qrCodeUrl} alt="Member QR Code" className="h-full w-full object-contain" />
+              </div>
+              <p className="mt-5 text-center text-sm font-medium text-white/80">Scan at checkout to earn & redeem</p>
             </div>
-          </div>
-          <div className="space-y-4 text-center">
-            <p className="text-xl font-bold tracking-tight text-white">Scan to earn Espro Points</p>
-            <div className="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2">
-              <span className="bg-primary h-1.5 w-1.5 rounded-full" />
-              <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase">{member.rewardsAvailableCount} REWARDS AVAILABLE</p>
-              <span className="bg-primary h-1.5 w-1.5 rounded-full" />
-            </div>
-          </div>
-        </div>
 
-        {/* Footer */}
-        <div className="z-10 mt-auto flex w-full flex-col items-center pt-8">
-          <div className="mb-6 h-px w-full bg-linear-to-r from-transparent via-white/5 to-transparent" />
-          <div className="flex w-full items-end justify-between">
-            <div className="flex flex-col gap-1">
-              <span className="text-[9px] font-bold tracking-[0.2em] text-white/30 uppercase">Member Since</span>
-              <span className="text-sm font-bold text-white">{member.memberSince}</span>
-            </div>
-            <div className="text-right">
-              <span className="text-[9px] font-medium tracking-wide text-white/20 italic">{member.pointsValidityText}</span>
+            {/* Bottom Section */}
+            <div className="mt-auto">
+              <div className="mb-5 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
+
+              {/* Member Info Row */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="bg-primary/20 flex h-8 w-8 items-center justify-center rounded-full">
+                    <span className="material-symbols-outlined text-primary text-base">person</span>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">{member.firstName}</p>
+                    <p className="text-espro-cream/50 text-[9px]">Since {member.memberSince}</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-primary text-lg font-bold">{member.pointsBalance.toLocaleString()}</p>
+                  <p className="text-espro-cream/50 text-[9px] font-medium tracking-wider uppercase">points</p>
+                </div>
+              </div>
+
+              {/* Footer Text */}
+              <div className="mt-5 border-t border-white/10 pt-4">
+                <p className="text-espro-cream/30 text-center text-[8px] font-medium tracking-wide uppercase">For support: help@esprocollective.com</p>
+              </div>
             </div>
           </div>
         </div>
