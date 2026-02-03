@@ -1,5 +1,7 @@
 import { AppShell, BottomNav } from "../components/layout";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import RedeemSuccessModal from "../components/RedeemSuccessModal";
 
 // Mock data
 const member = {
@@ -68,6 +70,16 @@ function getGreeting() {
 }
 
 export default function HomePage() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [rewardData, setRewardData] = useState({ points: 0, statusProgress: 0 });
+
+  const handleRedeem = (points: number) => {
+    // Calculate status progress based on points (example: 45 points = 2% progress)
+    const statusProgress = Math.round((points / 45) * 2);
+    setRewardData({ points, statusProgress });
+    setShowSuccessModal(true);
+  };
+
   return (
     <AppShell>
       {/* Top Bar */}
@@ -174,7 +186,7 @@ export default function HomePage() {
                 <p className="text-primary mb-1 text-[10px] font-extrabold tracking-widest uppercase">{reward.tag}</p>
                 <h4 className="text-accent-dark text-lg font-bold dark:text-white">{reward.title}</h4>
                 <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">{reward.description}</p>
-                <button className="bg-accent-dark dark:bg-primary mt-4 w-full rounded-lg py-2 text-xs font-bold tracking-wider text-white uppercase">
+                <button className="bg-accent-dark dark:bg-primary mt-4 w-full rounded-lg py-2 text-xs font-bold tracking-wider text-white uppercase" onClick={() => handleRedeem(reward.points)}>
                   {reward.action} ({reward.points} pts)
                 </button>
               </div>
@@ -184,6 +196,8 @@ export default function HomePage() {
       </main>
 
       <BottomNav />
+
+      <RedeemSuccessModal isOpen={showSuccessModal} onClose={() => setShowSuccessModal(false)} points={rewardData.points} statusProgress={rewardData.statusProgress} />
     </AppShell>
   );
 }
