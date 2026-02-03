@@ -10,7 +10,7 @@ const navItems = [
 
 export default function BottomNav() {
   return (
-    <nav className="nav-blur fixed right-0 bottom-0 left-0 z-50 mx-auto max-w-md border-t border-black/5 px-2 pt-2 pb-8 dark:border-white/10">
+    <nav className="bg-background-light dark:bg-background-dark fixed right-0 bottom-0 left-0 z-50 mx-auto max-w-md border-t border-black/5 px-2 pt-2 pb-4 dark:border-white/10">
       <div className="relative flex items-center justify-between px-2">
         {navItems.map((item) => (
           <NavLink key={item.to} to={item.to} className="group flex w-14 flex-col items-center justify-center gap-1">
