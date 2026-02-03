@@ -99,7 +99,7 @@ export default function ProfilePage() {
             </div>
 
             <div className="text-center">
-              <h1 className="font-display text-2xl font-extrabold tracking-tight text-[#1c140d] dark:text-white">{profile.fullName}</h1>
+              <h1 className="font-display text-accent-dark text-2xl font-extrabold tracking-tight dark:text-white">{profile.fullName}</h1>
               <div className="bg-primary/10 dark:bg-primary/20 mt-2 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5">
                 <span className="material-symbols-outlined text-primary active-icon text-[18px]">stars</span>
                 <p className="text-primary text-xs font-bold tracking-wider uppercase">{profile.tierName}</p>
@@ -111,21 +111,21 @@ export default function ProfilePage() {
           <div className="space-y-8 px-5">
             {/* Account Settings Section */}
             <section>
-              <h3 className="mb-3 px-1 text-[11px] font-bold tracking-[0.15em] text-[#1c140d]/40 uppercase dark:text-white/40">Account Settings</h3>
-              <div className="overflow-hidden rounded-2xl border border-black/[0.03] bg-white shadow-sm dark:border-white/[0.03] dark:bg-white/5">
+              <h3 className="text-accent-dark/40 mb-3 px-1 text-[11px] font-bold tracking-[0.15em] uppercase dark:text-white/40">Account Settings</h3>
+              <div className="overflow-hidden rounded-2xl border border-black/3 bg-white shadow-sm dark:border-white/3 dark:bg-white/5">
                 {accountSettings.map((item, index) => (
                   <Link
                     key={item.id}
                     to={item.to}
                     className={`flex cursor-pointer items-center gap-4 px-4 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-white/5 ${
-                      index < accountSettings.length - 1 ? "border-b border-black/[0.03] dark:border-white/5" : ""
+                      index < accountSettings.length - 1 ? "border-b border-black/3 dark:border-white/5" : ""
                     }`}
                   >
                     <div className={`${item.bgColor} rounded-xl p-2.5 ${item.textColor}`}>
                       <span className="material-symbols-outlined text-[22px]">{item.iconName}</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-[15px] font-semibold text-[#1c140d] dark:text-white">{item.label}</p>
+                      <p className="text-accent-dark text-[15px] font-semibold dark:text-white">{item.label}</p>
                     </div>
                     <span className="material-symbols-outlined text-gray-300">chevron_right</span>
                   </Link>
@@ -135,21 +135,21 @@ export default function ProfilePage() {
 
             {/* Your Activity Section */}
             <section>
-              <h3 className="mb-3 px-1 text-[11px] font-bold tracking-[0.15em] text-[#1c140d]/40 uppercase dark:text-white/40">Your Activity</h3>
-              <div className="overflow-hidden rounded-2xl border border-black/[0.03] bg-white shadow-sm dark:border-white/[0.03] dark:bg-white/5">
+              <h3 className="text-accent-dark/40 mb-3 px-1 text-[11px] font-bold tracking-[0.15em] uppercase dark:text-white/40">Your Activity</h3>
+              <div className="overflow-hidden rounded-2xl border border-black/3 bg-white shadow-sm dark:border-white/3 dark:bg-white/5">
                 {activityItems.map((item, index) => (
                   <Link
                     key={item.id}
                     to={item.to}
                     className={`flex cursor-pointer items-center gap-4 px-4 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-white/5 ${
-                      index < activityItems.length - 1 ? "border-b border-black/[0.03] dark:border-white/5" : ""
+                      index < activityItems.length - 1 ? "border-b border-black/3 dark:border-white/5" : ""
                     }`}
                   >
                     <div className={`${item.bgColor} rounded-xl p-2.5 ${item.textColor}`}>
                       <span className="material-symbols-outlined text-[22px]">{item.iconName}</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-[15px] font-semibold text-[#1c140d] dark:text-white">{item.label}</p>
+                      <p className="text-accent-dark text-[15px] font-semibold dark:text-white">{item.label}</p>
                       {item.subtitle && <p className="text-primary text-[12px] font-medium">{item.subtitle}</p>}
                     </div>
                     <span className="material-symbols-outlined text-gray-300">chevron_right</span>
@@ -160,15 +160,15 @@ export default function ProfilePage() {
 
             {/* Preferences Section */}
             <section>
-              <h3 className="mb-3 px-1 text-[11px] font-bold tracking-[0.15em] text-[#1c140d]/40 uppercase dark:text-white/40">Preferences</h3>
-              <div className="overflow-hidden rounded-2xl border border-black/[0.03] bg-white shadow-sm dark:border-white/[0.03] dark:bg-white/5">
+              <h3 className="text-accent-dark/40 mb-3 px-1 text-[11px] font-bold tracking-[0.15em] uppercase dark:text-white/40">Preferences</h3>
+              <div className="overflow-hidden rounded-2xl border border-black/3 bg-white shadow-sm dark:border-white/3 dark:bg-white/5">
                 {/* Notifications */}
-                <div className="flex cursor-pointer items-center gap-4 border-b border-black/[0.03] px-4 py-4 transition-colors hover:bg-gray-50 dark:border-white/5 dark:hover:bg-white/5">
+                <div className="flex cursor-pointer items-center gap-4 border-b border-black/3 px-4 py-4 transition-colors hover:bg-gray-50 dark:border-white/5 dark:hover:bg-white/5">
                   <div className="rounded-xl bg-pink-50 p-2.5 text-pink-600 dark:bg-pink-500/10 dark:text-pink-400">
                     <span className="material-symbols-outlined text-[22px]">notifications</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-[15px] font-semibold text-[#1c140d] dark:text-white">Notifications</p>
+                    <p className="text-accent-dark text-[15px] font-semibold dark:text-white">Notifications</p>
                   </div>
                   <button
                     onClick={(e) => {
@@ -187,7 +187,7 @@ export default function ProfilePage() {
                     <span className="material-symbols-outlined text-[22px]">contrast</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-[15px] font-semibold text-[#1c140d] dark:text-white">Appearance</p>
+                    <p className="text-accent-dark text-[15px] font-semibold dark:text-white">Appearance</p>
                   </div>
                   <p className="text-primary text-[11px] font-bold tracking-widest">{theme.toUpperCase()}</p>
                 </div>
