@@ -1,31 +1,16 @@
-import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import HomePage from "./pages/HomePage";
-import RewardsMarketplacePage from "./pages/RewardsMarketplacePage";
-import RewardsHistoryPage from "./pages/RewardsHistoryPage";
-import LoyaltyCardPage from "./pages/LoyaltyCardPage";
-import GamesPage from "./pages/GamesPage";
-import ProfilePage from "./pages/ProfilePage";
-import EditProfilePage from "./pages/EditProfilePage";
-import TierProgressionPage from "./pages/TierProgressionPage";
-import SettingsPage from "./pages/SettingsPage";
-import PaymentsPage from "./pages/PaymentsPage";
-import ScrollToTop from "./components/ScrollToTop";
-
-function Layout() {
-  return (
-    <>
-      <ScrollToTop />
-      <Outlet />
-    </>
-  );
-}
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { LoginPage, SignupPage, ForgotPasswordPage } from "@/features/auth";
+import { HomePage } from "@/features/home";
+import { ProfilePage, EditProfilePage, SettingsPage } from "@/features/profile";
+import { LoyaltyCardPage, TierProgressionPage } from "@/features/loyalty";
+import { RewardsMarketplacePage, RewardsHistoryPage } from "@/features/rewards";
+import { GamesPage } from "@/features/games";
+import { PaymentsPage } from "@/features/payments";
+import { LayoutWrapper } from "@/components/layout";
 
 export const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <LayoutWrapper />,
     children: [
       {
         path: "/",

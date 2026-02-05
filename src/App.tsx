@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { router } from "./router";
-import { ThemeProvider } from "./contexts";
+import { router } from "@/router";
+import { ThemeProvider } from "@/contexts";
 
 function App() {
   return (

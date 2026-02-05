@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
-import { AppShell, TopBar, BottomNav } from "../components/layout";
+import { AppShell, TopBar, BottomNav } from "@/components/layout";
 
 // Mock data
 const initialProfile = {

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import TopographicalPattern from "../components/TopographicalPattern";
-import BrandHeader from "../components/BrandHeader";
-import LoginForm from "../components/LoginForm";
+import { TopographicalPattern, BrandHeader } from "@/components/ui";
+import { LoginForm } from "../components";
 
 export default function LoginPage() {
   return (

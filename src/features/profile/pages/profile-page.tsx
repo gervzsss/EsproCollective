@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AppShell, TopBar, BottomNav } from "../components/layout";
-import ConfirmDialog from "../components/ConfirmDialog";
-import { useTheme } from "../contexts";
+import { AppShell, TopBar, BottomNav } from "@/components/layout";
+import { ConfirmDialog } from "@/components/ui";
+import { useTheme } from "@/contexts";
 
 // Mock data
 const profile = {

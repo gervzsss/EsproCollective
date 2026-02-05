@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AppShell, TopBar, BottomNav } from "../components/layout";
+import { AppShell, TopBar, BottomNav } from "@/components/layout";
 
 export default function SettingsPage() {
   return (

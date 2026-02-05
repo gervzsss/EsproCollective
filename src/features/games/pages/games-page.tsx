@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { AppShell, BottomNav } from "../components/layout";
+import { AppShell, BottomNav } from "@/components/layout";
 
 // Mock data
 const spinData = {

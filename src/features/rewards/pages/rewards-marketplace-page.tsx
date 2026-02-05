@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AppShell, BottomNav } from "../components/layout";
+import { AppShell, BottomNav } from "@/components/layout";
 
 // Mock data
 const member = {

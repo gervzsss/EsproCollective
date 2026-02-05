@@ -1,7 +1,7 @@
-import { AppShell, BottomNav } from "../components/layout";
+import { AppShell, BottomNav } from "@/components/layout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import RedeemSuccessModal from "../components/RedeemSuccessModal";
+import { RedeemSuccessModal } from "@/components/ui";
 
 // Mock data
 const member = {
