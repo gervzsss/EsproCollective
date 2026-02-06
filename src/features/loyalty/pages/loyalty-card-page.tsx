@@ -146,13 +146,13 @@ export default function LoyaltyCardPage() {
 
 function CardFrontVisual({ member }: { member: Member }) {
   return (
-    <div className="bg-cream card-shadow border-primary/10 dark:bg-accent-dark relative flex h-full w-full flex-col overflow-hidden rounded-4xl border dark:border-white/10">
+    <div className="bg-accent-dark card-shadow dark:bg-cream dark:border-primary/10 relative flex h-full w-full flex-col overflow-hidden rounded-4xl border border-white/10">
       {/* Topographical Pattern */}
       <CardTopoPattern />
 
       <div className="relative z-10 flex h-full flex-col px-7 pt-8 pb-6">
         {/* Name – top left, large & bold */}
-        <h3 className="text-accent-dark dark:text-espro-cream text-3xl font-extrabold tracking-tight">{member.firstName}</h3>
+        <h3 className="text-espro-cream dark:text-accent-dark text-3xl font-extrabold tracking-tight">{member.firstName}</h3>
 
         {/* Center – Coffee Cup Illustration + Branding */}
         <div className="-mt-2 flex flex-1 flex-col items-center justify-center">
@@ -160,35 +160,35 @@ function CardFrontVisual({ member }: { member: Member }) {
             {/* Coffee pour + hand holding cup illustration */}
             <svg className="h-full w-full fill-none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 120 170">
               {/* Pour stream from top */}
-              <line x1="60" y1="0" x2="60" y2="52" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="3.5" />
+              <line x1="60" y1="0" x2="60" y2="52" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="3.5" />
               {/* Splash drops */}
-              <circle cx="52" cy="55" r="1.5" className="fill-accent-dark dark:fill-espro-cream" />
-              <circle cx="68" cy="53" r="1.2" className="fill-accent-dark dark:fill-espro-cream" />
-              <circle cx="56" cy="50" r="1" className="fill-accent-dark dark:fill-espro-cream" />
+              <circle cx="52" cy="55" r="1.5" className="fill-espro-cream dark:fill-accent-dark" />
+              <circle cx="68" cy="53" r="1.2" className="fill-espro-cream dark:fill-accent-dark" />
+              <circle cx="56" cy="50" r="1" className="fill-espro-cream dark:fill-accent-dark" />
               {/* Coffee surface */}
-              <ellipse cx="60" cy="62" rx="18" ry="4" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="1.5" />
+              <ellipse cx="60" cy="62" rx="18" ry="4" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="1.5" />
               {/* Cup body */}
-              <path d="M38 58 Q38 82 60 82 Q82 82 82 58" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="2" />
-              <line x1="38" y1="58" x2="82" y2="58" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="2" />
+              <path d="M38 58 Q38 82 60 82 Q82 82 82 58" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="2" />
+              <line x1="38" y1="58" x2="82" y2="58" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="2" />
               {/* Cup handle */}
-              <path d="M82 64 Q92 64 92 73 Q92 82 82 82" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="1.8" />
+              <path d="M82 64 Q92 64 92 73 Q92 82 82 82" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="1.8" />
               {/* Hand – palm & fingers wrapping under cup */}
-              <path d="M35 95 Q30 88 38 82 Q42 78 48 80" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="1.8" />
-              <path d="M85 95 Q90 88 82 82 Q78 78 72 80" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="1.8" />
-              <path d="M35 95 Q38 102 50 105 Q60 107 70 105 Q82 102 85 95" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="1.8" />
+              <path d="M35 95 Q30 88 38 82 Q42 78 48 80" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="1.8" />
+              <path d="M85 95 Q90 88 82 82 Q78 78 72 80" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="1.8" />
+              <path d="M35 95 Q38 102 50 105 Q60 107 70 105 Q82 102 85 95" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="1.8" />
               {/* Thumb */}
-              <path d="M35 95 Q32 92 34 88" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="1.5" />
+              <path d="M35 95 Q32 92 34 88" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="1.5" />
               {/* Wrist / base */}
-              <path d="M50 105 Q50 115 48 125" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="2.5" />
-              <path d="M70 105 Q70 115 72 125" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="2.5" />
+              <path d="M50 105 Q50 115 48 125" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="2.5" />
+              <path d="M70 105 Q70 115 72 125" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="2.5" />
               {/* Saucer / base */}
-              <path d="M40 125 Q60 132 80 125" className="stroke-accent-dark dark:stroke-espro-cream" strokeWidth="2" />
+              <path d="M40 125 Q60 132 80 125" className="stroke-espro-cream dark:stroke-accent-dark" strokeWidth="2" />
               <rect x="52" y="132" width="16" height="22" rx="2" className="stroke-primary" strokeWidth="2" fill="none" />
             </svg>
           </div>
           {/* Brand text */}
           <div className="text-center">
-            <h1 className="font-serif-bold text-accent-dark dark:text-espro-cream text-4xl tracking-tight">espro.</h1>
+            <h1 className="font-serif-bold text-espro-cream dark:text-accent-dark text-4xl tracking-tight">espro.</h1>
             <p className="font-script text-primary -mt-2 text-3xl">Collective</p>
           </div>
         </div>
@@ -197,20 +197,20 @@ function CardFrontVisual({ member }: { member: Member }) {
         <div className="mt-auto">
           {/* Point Balance */}
           <div className="mb-2 flex items-end justify-between">
-            <p className="text-accent-dark/70 dark:text-espro-cream/70 text-xs font-semibold">Point Balance</p>
-            <p className="text-accent-dark dark:text-espro-cream text-xl font-bold">
-              {member.pointsBalance.toLocaleString()} <span className="text-accent-dark/40 dark:text-espro-cream/40 text-[10px] font-black tracking-widest uppercase">pts</span>
+            <p className="text-espro-cream/70 dark:text-accent-dark/70 text-xs font-semibold">Point Balance</p>
+            <p className="text-espro-cream dark:text-accent-dark text-xl font-bold">
+              {member.pointsBalance.toLocaleString()} <span className="text-espro-cream/40 dark:text-accent-dark/40 text-[10px] font-black tracking-widest uppercase">pts</span>
             </p>
           </div>
           {/* Progress bar */}
-          <div className="bg-accent-dark/10 mb-5 h-2.5 w-full overflow-hidden rounded-full dark:bg-white/10">
+          <div className="dark:bg-accent-dark/10 mb-5 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
             <div className="bg-primary h-full rounded-full shadow-[0_0_12px_rgba(250,129,18,0.5)]" style={{ width: `${member.pointsProgressPct}%` }} />
           </div>
           {/* Divider */}
-          <div className="bg-accent-dark/10 mb-4 h-px w-full dark:bg-white/10" />
+          <div className="dark:bg-accent-dark/10 mb-4 h-px w-full bg-white/10" />
           {/* Loyalty Card label + Tier badge */}
           <div className="flex items-center justify-between">
-            <p className="text-accent-dark dark:text-espro-cream text-[10px] font-extrabold tracking-[0.2em] uppercase">Espro Loyalty Card</p>
+            <p className="text-espro-cream dark:text-accent-dark text-[10px] font-extrabold tracking-[0.2em] uppercase">Espro Loyalty Card</p>
             <div className="flex flex-col items-center">
               <span className="material-symbols-outlined filled text-primary text-2xl">{member.tierIcon}</span>
               <span className="text-primary text-[9px] font-black tracking-widest uppercase">{member.tierName}</span>
@@ -248,7 +248,7 @@ function MembershipDetails({ member }: { member: Member }) {
 
 function CardBackVisual({ member }: { member: Member }) {
   return (
-    <div className="bg-cream card-shadow border-primary/10 dark:bg-accent-dark relative flex h-full w-full flex-col overflow-hidden rounded-4xl border dark:border-white/10">
+    <div className="bg-accent-dark card-shadow dark:bg-cream dark:border-primary/10 relative flex h-full w-full flex-col overflow-hidden rounded-4xl border border-white/10">
       {/* Topographical Pattern */}
       <CardTopoPattern />
 
@@ -261,11 +261,11 @@ function CardBackVisual({ member }: { member: Member }) {
         </div>
 
         {/* Scan text */}
-        <p className="text-accent-dark dark:text-espro-cream mt-4 text-center text-sm font-bold">Scan this card to collect stickers.</p>
+        <p className="text-espro-cream dark:text-accent-dark mt-4 text-center text-sm font-bold">Scan this card to collect stickers.</p>
 
         {/* Terms & conditions text */}
         <div className="mt-3">
-          <p className="text-accent-dark/70 dark:text-espro-cream/60 text-[11px] leading-relaxed">
+          <p className="text-espro-cream/60 dark:text-accent-dark/70 text-[11px] leading-relaxed">
             Earn Espro Points with every purchase made using this Espro Collective QR Promo Card (the &ldquo;Card&rdquo;). The Card must be presented to redeem any reward. Earned points/stickers are
             non-transferable, and lost Cards (including any earned points/stickers) cannot be replaced. Use of this card is governed by and constitutes acceptance of the full Espro Cafe promo terms
             and conditions. For concerns, kindly message us on any social media accounts Espro Cafe.
@@ -275,7 +275,7 @@ function CardBackVisual({ member }: { member: Member }) {
         {/* Bottom – Brand logo */}
         <div className="mt-6">
           <div className="text-left">
-            <h1 className="font-serif-bold text-accent-dark dark:text-espro-cream text-2xl leading-none tracking-tight">espro.</h1>
+            <h1 className="font-serif-bold text-espro-cream dark:text-accent-dark text-2xl leading-none tracking-tight">espro.</h1>
             <p className="font-script text-primary -mt-1 text-xl leading-none">Collective</p>
           </div>
         </div>
