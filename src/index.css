@@ -97,6 +97,24 @@
   background: linear-gradient(135deg, #1c140d 0%, #322416 100%);
 }
 
+/* ===== 3D Card Flip ===== */
+.flip-perspective {
+  perspective: 1200px;
+}
+
+.flip-inner {
+  transform-style: preserve-3d;
+}
+
+.flip-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
 /* ===== Card Shadow ===== */
 .card-shadow {
   box-shadow:
