@@ -135,8 +135,9 @@ export default function LoyaltyCardPage() {
           </motion.div>
         </div>
 
-        {/* Contextual content below the card */}
-        {!isFlipped ? <MembershipDetails member={member} /> : <ShareButton />}
+        {/* Content below the card - always visible */}
+        <MembershipDetails member={member} />
+        <ShareButton />
       </main>
 
       <BottomNav />
@@ -286,9 +287,11 @@ function CardBackVisual({ member }: { member: Member }) {
 
 function ShareButton() {
   return (
-    <button className="border-accent-dark/10 mt-8 flex w-full items-center justify-center gap-3 rounded-2xl border bg-white py-4 transition-all active:scale-[0.98] dark:border-white/10 dark:bg-white/5">
-      <span className="material-symbols-outlined text-accent-dark/60 text-xl dark:text-white/60">share</span>
-      <span className="text-accent-dark/80 text-sm font-bold dark:text-white/80">Share Pass to Wallet</span>
-    </button>
+    <div className="px-2">
+      <button className="border-accent-dark/10 flex w-full items-center justify-center gap-3 rounded-2xl border bg-white py-4 transition-all active:scale-[0.98] dark:border-white/10 dark:bg-white/5">
+        <span className="material-symbols-outlined text-accent-dark/60 text-xl dark:text-white/60">share</span>
+        <span className="text-accent-dark/80 text-sm font-bold dark:text-white/80">Share Pass to Wallet</span>
+      </button>
+    </div>
   );
 }
