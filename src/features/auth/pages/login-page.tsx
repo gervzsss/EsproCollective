@@ -4,9 +4,9 @@ import { LoginForm } from "../components";
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen flex-col overflow-hidden">
+    <div className="bg-cream flex min-h-screen flex-col overflow-hidden">
       {/* Top Section - Cream Background with Brand */}
-      <div className="bg-cream relative flex flex-1 flex-col items-center justify-center overflow-hidden p-8">
+      <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden p-8">
         <TopographicalPattern />
         <BrandHeader />
       </div>
