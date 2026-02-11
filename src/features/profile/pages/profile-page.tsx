@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AppShell, TopBar, BottomNav } from "@/components/layout";
 import { ConfirmDialog } from "@/components/ui";
 import { useTheme } from "@/contexts";
+import { useInstallPrompt, useInstallModal } from "@/features/pwa";
 
 // Mock data
 const profile = {
@@ -63,8 +64,16 @@ const activityItems = [
 export default function ProfilePage() {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const { isInstalled } = useInstallPrompt();
+  const { openInstallModal } = useInstallModal();
   const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+
+  const handleInstallClick = () => {
+    if (!isInstalled) {
+      openInstallModal("manual");
+    }
+  };
 
   const handleLogout = () => {
     setShowLogoutDialog(false);
@@ -182,7 +191,10 @@ export default function ProfilePage() {
                 </div>
 
                 {/* Appearance */}
-                <div className="flex cursor-pointer items-center gap-4 px-4 py-4 transition-colors hover:bg-gray-50 dark:hover:bg-white/5" onClick={toggleTheme}>
+                <div
+                  className="flex cursor-pointer items-center gap-4 border-b border-black/3 px-4 py-4 transition-colors hover:bg-gray-50 dark:border-white/5 dark:hover:bg-white/5"
+                  onClick={toggleTheme}
+                >
                   <div className="rounded-xl bg-indigo-50 p-2.5 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
                     <span className="material-symbols-outlined text-[22px]">contrast</span>
                   </div>
@@ -190,6 +202,24 @@ export default function ProfilePage() {
                     <p className="text-accent-dark text-[15px] font-semibold dark:text-white">Appearance</p>
                   </div>
                   <p className="text-primary text-[11px] font-bold tracking-widest">{theme.toUpperCase()}</p>
+                </div>
+
+                {/* Install App */}
+                <div className={`flex items-center gap-4 px-4 py-4 transition-colors ${isInstalled ? "" : "cursor-pointer hover:bg-gray-50 dark:hover:bg-white/5"}`} onClick={handleInstallClick}>
+                  <div className="rounded-xl bg-teal-50 p-2.5 text-teal-600 dark:bg-teal-500/10 dark:text-teal-400">
+                    <span className="material-symbols-outlined text-[22px]">install_mobile</span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-accent-dark text-[15px] font-semibold dark:text-white">Install App</p>
+                  </div>
+                  {isInstalled ? (
+                    <div className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[18px] text-green-600 dark:text-green-400">check_circle</span>
+                      <p className="text-[11px] font-bold tracking-widest text-green-600 dark:text-green-400">INSTALLED</p>
+                    </div>
+                  ) : (
+                    <span className="material-symbols-outlined text-gray-300">chevron_right</span>
+                  )}
                 </div>
               </div>
             </section>
