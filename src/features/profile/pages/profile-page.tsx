@@ -4,15 +4,10 @@ import { AppShell, TopBar, BottomNav } from "@/components/layout";
 import { ConfirmDialog } from "@/components/ui";
 import { useTheme } from "@/contexts";
 import { useInstallPrompt, useInstallModal } from "@/features/pwa";
+import { mockUser } from "@/data/mock-user";
 
 // Mock data
-const profile = {
-  fullName: "Alex Thorne",
-  avatarUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBuHpBDCxZ-QdO6yVPsw583PtiCeFo0WTpgqrrhjdUwi18TiNnQ5e19SV08sCCd7q12KbqpPZN0oYOzM-o_xyBViyU4fQEpvhO3bm6AYpavPYw2jgcs0SfKoLKbMGqb5mLhomtemCRGczZ7d6AlHwPE_PD9VUZsfAFliQWus3wmWIxqvrlqUH6SOn0zyaAB72T8FIbcRPzh7kEliJMIKbinsHjfZsvksWq_FEZ8DvEdYGlzs8sLOaZv31zmuxqMtjSsW9edTfXu2pBW",
-  tierName: "Espro Elite Member",
-  memberSince: "2023",
-};
+const profile = mockUser;
 
 const accountSettings = [
   {

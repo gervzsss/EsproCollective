@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AppShell, BottomNav } from "@/components/layout";
+import { mockMember } from "@/data/mock-user";
 
 // Mock data
 const member = {
-  firstName: "Alex",
+  firstName: mockMember.firstName,
   tierName: "Gold Member Tier",
-  avatarUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuCyOjsN08Mmn0YhaxyQSyTtlIL1w9yEwNOTLzMkZ2C8Kb1hKD2l7o4RGhny8qZ1Im1Oqp-ssegWe1CGBATk8W0P6hl4hCGuSkpgWzD2PvWlnXfL1-ISv94ADGlGZxGrPFvlU7WWocYrQV0jc53HWwtlZ463FiQ-s0ZPNYLp2JG6FU9owCRc-6Xx69obXTMqxIIJ4ePCnBjnDNRVDbxw7ZYxxknY4NAm0YbwwCozjL5G_ogYmBB1_23HqTrFdlgSZptaEkfhcphd4f0y",
-  pointsBalance: 1250,
-  nextLevelPoints: 1300,
-  progressPct: 80,
-  nextRewardHint: "50 points away from a Free Latte!",
+  avatarUrl: mockMember.avatarUrl,
+  pointsBalance: mockMember.pointsBalance,
+  nextLevelPoints: mockMember.nextLevelPoints,
+  progressPct: mockMember.progressPct,
+  nextRewardHint: mockMember.nextRewardHint,
 };
 
 const categories = [

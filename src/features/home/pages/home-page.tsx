@@ -2,22 +2,21 @@ import { AppShell, BottomNav } from "@/components/layout";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { RedeemSuccessModal } from "@/components/ui";
+import { mockMember } from "@/data/mock-user";
 
 // Mock data
 const member = {
-  name: "Alex Sterling",
-  avatarUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDxVO_MTA150ewsjJQ_Xv9ZX-5N3hYLNuHcpZMDlH1h7HBndujJ-05QWuU-qFV-albOwLj8JwOAKNCP-3DjNEQVX9b00yHbCKm_XuGtaCI0SuE4DDo8ll_AQzO-YD7l26QlzoYaxAIzVFN0NaJfGxjRCLvbcj2i8XzUo2CGFj281_jcwPxtZv3tKOxFailNfSxWF0zFZazJrsQn2nPzOj9aO2ILyfW-Y1dEa794PvyW7_lV6UfF4KP7757pYjrCVjf8QKtVQStvC49G",
+  name: mockMember.fullName,
+  avatarUrl: mockMember.avatarUrl,
 };
 
 const tierSummary = {
-  tierName: "Espro Elite",
-  pointsBalance: 1250,
-  progressPct: 75,
-  levelStatus: "Level 3 Status",
-  ptsToNextLevel: 250,
-  bannerImageUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuCNlmaM9tQ6yvVvenQn7o_z-6n2_jUv-4tyNt1j_NIyq5XLdG24MqP5-yWEP9RbJw41x8nTR8_O1JiN4Ft3sBVQ4S7yunt72OWph2iLpM9lxMeI3FuyWFAwnui9fQZxoMLzUgwdxJLZDV0vpfsZHsmzaVayYFU0ky5kXcY501tFGFUbSG9bBGpUQINQZWHALUcxu9LugjqQl1sVMnFnOQXtpdcXzsW8_pYZ_ysls_57tfvaH6iJCW6dqyOR0Hf6BrJnbCWV8VQsCDVc",
+  tierName: mockMember.tierName,
+  pointsBalance: mockMember.pointsBalance,
+  progressPct: mockMember.progressPct,
+  levelStatus: mockMember.levelStatus,
+  ptsToNextLevel: mockMember.ptsToNextLevel,
+  bannerImageUrl: mockMember.bannerImageUrl,
 };
 
 const missions = [

@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useTransform, type PanInfo } from "motion/react";
 import { AppShell, BottomNav } from "@/components/layout";
+import { mockMember } from "@/data/mock-user";
 
 // Member type
 interface Member {
@@ -20,16 +21,9 @@ interface Member {
 // TODO: Replace mock data with authenticated user data from auth context/state.
 // The firstName and other fields should be sourced from the logged-in user's profile.
 const member: Member = {
-  firstName: "Seb",
+  ...mockMember,
   tierName: "Elite",
-  tierIcon: "workspace_premium",
-  pointsBalance: 1250,
-  pointsProgressPct: 69,
-  benefits: ["Free Add-on", "Espro Elite"],
   memberSince: "Nov 2023",
-  rewardsAvailableCount: 4,
-  pointsValidityText: "Points valid for 12 months",
-  qrCodeUrl: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=ESPRO-MEMBER-12345&margin=0",
 };
 
 /** Inline topographical wavy lines for the card – positioned on the right side */

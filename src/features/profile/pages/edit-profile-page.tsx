@@ -1,16 +1,10 @@
 import { useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
 import { AppShell, TopBar, BottomNav } from "@/components/layout";
+import { mockUser } from "@/data/mock-user";
 
 // Mock data
-const initialProfile = {
-  fullName: "Alex Rivera",
-  email: "alex.rivera@espro.com",
-  phone: "+1 (555) 234-5678",
-  birthday: "12 / 05 / 1994",
-  avatarUrl:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDQssYqP4xlgkYOJHVx2vAivyDH12wOb60PxprfOiIzG9BZlU_s8LmuxmCsw1HcHTOeMWrhZbaUh6iy6mTu_pwma3UQCPwvxvn0mz7n8SQTD1n1DTdpvzt1P0HY7sGDpkwfb2HjeEwRQwRvAVXv0wfCPTzJiV-ECUHm2MKCwKColFSSgtEVM_RIKEAfYlN7b06-3q1qBWTuRieJqhfK2m_KB9geSQzqq0dZlvTO85eq-lqh2T9EP78_We9ijFpFbAOcp_lvJGm_FWdz",
-};
+const initialProfile = mockUser;
 
 export default function EditProfilePage() {
   const [profile, setProfile] = useState(initialProfile);
@@ -64,7 +58,7 @@ export default function EditProfilePage() {
               type="text"
               value={profile.fullName}
               onChange={(e) => setProfile({ ...profile, fullName: e.target.value })}
-              placeholder="e.g. Alex Rivera"
+              placeholder="e.g. Gervy Masbate"
               className="text-accent-dark focus:border-primary focus:ring-primary w-full rounded-xl border border-[#e9dbce] bg-white px-4 py-4 transition-all outline-none placeholder:text-[#9e7147]/60 focus:ring-1 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
             />
           </div>
@@ -76,7 +70,7 @@ export default function EditProfilePage() {
               type="email"
               value={profile.email}
               onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-              placeholder="alex.r@example.com"
+              placeholder="gervy.m@example.com"
               className="text-accent-dark focus:border-primary focus:ring-primary w-full rounded-xl border border-[#e9dbce] bg-white px-4 py-4 transition-all outline-none placeholder:text-[#9e7147]/60 focus:ring-1 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
             />
           </div>
